@@ -5,6 +5,14 @@ import { createApp } from './server/app.js';
 
 // https://vite.dev/config/
 export default defineConfig({
+  server: {
+    proxy: {
+      '/abc': {
+        target: 'https://xxx.com',
+        changeOrigin: true,
+      },
+    },
+  },
   plugins: [
     {
       name: 'express-api',
